@@ -5,7 +5,7 @@ image_url    = $(ecr_registry)/$(app_name):$(version)
 
 .PHONY: build
 build:
-	docker build -t $(image_url) .
+	docker buildx build --platform "linux/amd64" -t $(image_url) .
 
 .PHONY: dev-start
 dev-start:
