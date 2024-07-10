@@ -1,12 +1,12 @@
 FROM golang:1.22.5-alpine AS build-image
 
-COPY tools/lambda-promtail /src/lambda-promtail
+COPY lambda-promtail /src/lambda-promtail
 WORKDIR /src/lambda-promtail
 
 RUN go version
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache bash git
+  apk add --no-cache bash git
 RUN go version
 
 RUN ls -al
